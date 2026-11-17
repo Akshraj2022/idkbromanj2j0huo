@@ -7,23 +7,8 @@ const WHATSAPP_INVITE_URL = 'https://whatsapp.com/channel/0029VbElVyjKLaHl2fAsvu
 const SHARE_IMAGE_URL = '/share/social-card.png';
 
 export default function WhatsAppCTA() {
-  const [count, setCount] = useState<number | null>(null);
-  const [hasClicked, setHasClicked] = useState(false);
-  const [isUpdating, setIsUpdating] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
-
-  // Fetch true live interest count from server
-  useEffect(() => {
-    fetch('/api/interest')
-      .then((res) => res.json())
-      .then((data) => {
-        if (typeof data.count === 'number') {
-          setCount(data.count);
-        }
-      })
-      .catch((err) => console.error('Failed to load interest count:', err));
-  }, []);
 
   // Handle ESC key to close modal
   useEffect(() => {
@@ -36,65 +21,17 @@ export default function WhatsAppCTA() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isModalOpen]);
 
-  async function handleJoinClick() {
+  function handleJoinClick() {
     // Open the download / social share popup immediately
     setIsModalOpen(true);
-
-    if (!hasClicked) {
-      setHasClicked(true);
-      setIsUpdating(true);
-      try {
-        const res = await fetch('/api/interest', { method: 'POST' });
-        const data = await res.json();
-        if (typeof data.count === 'number') {
-          setCount(data.count);
-        }
-      } catch (err) {
-        console.error('Failed to update interest count:', err);
-      } finally {
-        setIsUpdating(false);
-      }
-    }
   }
-
-  const currentCount = count ?? 0;
 
   return (
     <>
       <div
         id="request-form"
-        className="max-w-xl mx-auto w-full text-center flex flex-col items-center gap-10"
+        className="max-w-xl mx-auto w-full text-center flex flex-col items-center gap-6"
       >
-        {/* Live Counter Display */}
-        <div className="flex flex-col items-center gap-3 p-8 border border-[var(--cream)]/15 bg-white/[0.03] w-full">
-          <div className="flex items-center gap-2.5 text-xs uppercase tracking-widest text-[var(--cream)]/70 font-mono">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-            </span>
-            <span>Live Community Counter</span>
-          </div>
-
-          <div className="flex items-baseline justify-center gap-2">
-            <span
-              className={`font-[family-name:var(--font-display)] text-5xl sm:text-6xl tracking-tight text-[var(--cream)] transition-all duration-300 ${
-                isUpdating ? 'scale-110 text-emerald-400' : 'scale-100'
-              }`}
-            >
-              {currentCount.toLocaleString()}
-            </span>
-            <span className="font-[family-name:var(--font-label)] text-lg sm:text-xl uppercase tracking-wider text-[var(--cream)]/80">
-              {currentCount === 1 ? 'Parent' : 'Parents'}
-            </span>
-          </div>
-
-          <p className="font-[family-name:var(--font-body)] text-xs sm:text-sm text-[var(--cream)]/60 max-w-md leading-relaxed">
-            {currentCount === 0
-              ? 'Be the first parent to join our private announcement channel.'
-              : 'Joined the announcement channel for priority invite release.'}
-          </p>
-        </div>
-
         {/* Action Block */}
         <div className="flex flex-col items-center gap-4 w-full">
           <a
@@ -103,7 +40,7 @@ export default function WhatsAppCTA() {
             rel="noopener noreferrer"
             onClick={handleJoinClick}
             aria-label="Join WhatsApp Announcement Channel"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-5 text-sm sm:text-base uppercase tracking-widest font-semibold transition-all duration-200 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--cream)] focus-visible:outline-offset-4 cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-5 text-sm sm:text-base uppercase tracking-widest font-semibold transition-all duration-200 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--cream)] focus-visible:outline-offset-4 cursor-pointer"
             style={{
               fontFamily: 'var(--font-label)',
               backgroundColor: 'var(--cta)',
