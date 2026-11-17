@@ -1,0 +1,759 @@
+/* ==========================================================================
+   ERITO — STANDALONE STYLESHEET
+   Pure CSS without framework dependencies
+   ========================================================================== */
+
+/* ── Design Tokens ──────────────────────────────────────────────────────── */
+:root {
+  --cta: #E3000F;
+  --dark: #111214;
+  --cream: #ECE9E2;
+  --bronze: #8C6A2B;
+  --prodigy-brown: #70521D;
+
+  --font-display: 'Bodoni Moda', Georgia, serif;
+  --font-label: 'Oswald', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --max-w-narrow: 768px;
+  --max-w-wide: 1152px;
+  --max-w-hero: 896px;
+}
+
+/* ── Reset & Base Styles ────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--dark);
+  color: var(--cream);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--dark);
+  color: var(--cream);
+  line-height: 1.5;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+::selection {
+  background-color: var(--cta);
+  color: var(--cream);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ── Typography Classes ─────────────────────────────────────────────────── */
+.display-font {
+  font-family: var(--font-display);
+}
+
+.label-font {
+  font-family: var(--font-label);
+}
+
+.body-font {
+  font-family: var(--font-body);
+}
+
+/* ── Theme Backgrounds ──────────────────────────────────────────────────── */
+.dark-bg {
+  background-color: var(--dark);
+  color: var(--cream);
+  position: relative;
+}
+
+.cream-bg {
+  background-color: var(--cream);
+  color: var(--dark);
+  position: relative;
+}
+
+/* ── Grain Texture Overlay ──────────────────────────────────────────────── */
+.dark-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ── Common Layout Container ────────────────────────────────────────────── */
+.section-container {
+  width: 100%;
+  max-width: var(--max-w-wide);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Highlight Badge Link ───────────────────────────────────────────────── */
+.highlight-badge {
+  display: inline-block;
+  background-color: var(--cta);
+  color: var(--cream);
+  padding: 0.15em 0.5em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  margin-left: 0.25rem;
+  vertical-align: baseline;
+}
+
+.highlight-badge:hover,
+.highlight-badge:focus-visible {
+  background-color: var(--cream);
+  color: var(--cta);
+  outline: 2px solid var(--cream);
+  outline-offset: 4px;
+}
+
+/* ── 1. Hero Section ────────────────────────────────────────────────────── */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: var(--max-w-hero);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-container {
+    gap: 3.5rem;
+  }
+}
+
+.hero-logo {
+  height: 4rem;
+  width: auto;
+  object-fit: contain;
+  user-select: none;
+}
+
+@media (min-width: 640px) {
+  .hero-logo {
+    height: 5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-logo {
+    height: 6rem;
+  }
+}
+
+.hero-headline {
+  font-size: clamp(2.25rem, 6.5vw, 5.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+  color: var(--cream);
+}
+
+.hero-headline span {
+  display: inline;
+}
+
+.hero-subheadline {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  color: rgba(236, 233, 226, 0.7);
+  max-width: 36rem;
+  line-height: 1.6;
+}
+
+/* ── 2. Tiers Section ───────────────────────────────────────────────────── */
+.tiers-section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 640px) {
+  .tiers-section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+.tiers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .tiers-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.tier-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .tier-card-core {
+    transform: translateY(-2.5rem);
+  }
+}
+
+.card-visual-wrapper {
+  width: 100%;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  perspective: 800px;
+}
+
+.card-visual-wrapper:hover {
+  transform: perspective(800px) rotateY(6deg) scale(1.02);
+}
+
+.card-inner-box {
+  position: relative;
+  width: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.card-inner-box.prodigy-border {
+  padding: 1.5px;
+  background-color: var(--bronze);
+  box-shadow: 0 20px 40px -10px rgba(112, 82, 29, 0.3), 0 0 0 1px var(--bronze);
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1.41;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+.tier-name {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.tier-name-prodigy {
+  color: var(--prodigy-brown);
+  font-weight: 700;
+}
+
+.tier-desc {
+  font-size: 1rem;
+  color: rgba(17, 18, 20, 0.7);
+  max-width: 240px;
+}
+
+/* ── 3. Drops Section ───────────────────────────────────────────────────── */
+.drops-section {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .drops-section {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+}
+
+.drops-container {
+  text-align: center;
+  max-width: var(--max-w-hero);
+}
+
+.drops-headline {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: var(--cream);
+}
+
+/* ── 4. Parent Control Section ──────────────────────────────────────────── */
+.parent-control-section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 640px) {
+  .parent-control-section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+.parent-control-container {
+  max-width: var(--max-w-narrow);
+}
+
+.feature-row {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(17, 18, 20, 0.12);
+}
+
+@media (min-width: 640px) {
+  .feature-row {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+.feature-row-last {
+  border-bottom: none;
+}
+
+.feature-title {
+  font-size: clamp(1.85rem, 4vw, 3rem);
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: var(--dark);
+}
+
+/* ── 5. Admission & Criteria (How Invites Work) ──────────────────────────── */
+.admission-section {
+  padding-top: 7rem;
+  padding-bottom: 8rem;
+}
+
+@media (min-width: 640px) {
+  .admission-section {
+    padding-top: 9rem;
+    padding-bottom: 10rem;
+  }
+}
+
+.admission-container {
+  max-width: var(--max-w-narrow);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.admission-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.admission-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  color: rgba(17, 18, 20, 0.6);
+}
+
+.admission-title {
+  font-size: clamp(1.85rem, 4vw, 3rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  font-weight: 400;
+  color: var(--dark);
+}
+
+.admission-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(17, 18, 20, 0.82);
+}
+
+@media (min-width: 640px) {
+  .admission-content {
+    font-size: 1.125rem;
+  }
+}
+
+.admission-quote-box {
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(17, 18, 20, 0.15);
+}
+
+.admission-quote {
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  color: rgba(17, 18, 20, 0.9);
+}
+
+/* ── 6. Final CTA Section ───────────────────────────────────────────────── */
+.final-cta-section {
+  padding-top: 6rem;
+  padding-bottom: 8rem;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .final-cta-section {
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+  }
+}
+
+.final-cta-container {
+  max-width: var(--max-w-hero);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.action-block {
+  max-width: 36rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.25rem 2.5rem;
+  background-color: var(--cta);
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .whatsapp-btn {
+    width: auto;
+    font-size: 1rem;
+  }
+}
+
+.whatsapp-btn:hover,
+.whatsapp-btn:focus-visible {
+  background-color: var(--cream);
+  color: var(--cta);
+  outline: 2px solid var(--cream);
+  outline-offset: 4px;
+}
+
+.whatsapp-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.cta-microcopy {
+  font-size: 0.75rem;
+  color: rgba(236, 233, 226, 0.6);
+}
+
+/* ── 7. Site Footer ─────────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid rgba(236, 233, 226, 0.1);
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.footer-container {
+  max-width: var(--max-w-hero);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.825rem;
+  color: rgba(236, 233, 226, 0.6);
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 640px) {
+  .footer-container {
+    flex-direction: row;
+  }
+}
+
+.footer-brand {
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: rgba(236, 233, 226, 0.85);
+}
+
+.footer-disclaimer {
+  text-align: center;
+  max-width: 26rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 640px) {
+  .footer-disclaimer {
+    text-align: right;
+  }
+}
+
+/* ── 8. Social Media Share Modal ────────────────────────────────────────── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease-out, visibility 0.25s ease-out;
+}
+
+.modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 32rem;
+  background-color: var(--dark);
+  border: 1px solid rgba(236, 233, 226, 0.2);
+  padding: 2rem 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  color: var(--cream);
+  transform: translateY(16px) scale(0.97);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+  .modal-content {
+    padding: 2.5rem;
+  }
+}
+
+.modal-backdrop.is-open .modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  color: rgba(236, 233, 226, 0.6);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.15s ease;
+}
+
+.modal-close-btn:hover {
+  color: var(--cream);
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(236, 233, 226, 0.6);
+}
+
+.modal-title {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: var(--cream);
+}
+
+.modal-desc {
+  font-size: 0.875rem;
+  color: rgba(236, 233, 226, 0.7);
+  max-width: 24rem;
+  line-height: 1.6;
+}
+
+.modal-preview-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 2000 / 1414;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(236, 233, 226, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.modal-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.btn-download {
+  width: 100%;
+  padding: 0.95rem 1.5rem;
+  background-color: var(--cta);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.btn-download:hover,
+.btn-download:focus-visible {
+  background-color: var(--cream);
+  color: var(--cta);
+}
+
+.btn-done {
+  background: none;
+  border: none;
+  color: rgba(236, 233, 226, 0.6);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.btn-done:hover {
+  color: var(--cream);
+}
+
+/* ── 9. Fade-Up Scroll Animations ───────────────────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Handle desktop offset for CORE card when visible */
+@media (min-width: 768px) {
+  .tier-card-core.fade-up.is-visible {
+    transform: translateY(-2.5rem);
+  }
+}
+
+/* ── 10. Accessibility & Reduced Motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .card-visual-wrapper:hover {
+    transform: none !important;
+  }
+}

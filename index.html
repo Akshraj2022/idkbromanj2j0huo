@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Erito — A wallet card for teens</title>
+  <meta name="description" content="A first wallet for your child, built around standards." />
+  <link rel="icon" href="favicon.ico" sizes="48x48" type="image/x-icon" />
+
+  <!-- Google Fonts: Bodoni Moda, Oswald, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Preload Critical Images -->
+  <link rel="preload" as="image" href="brand/wordmark.png" />
+  <link rel="preload" as="image" href="cards/basic.png" />
+  <link rel="preload" as="image" href="cards/core.png" />
+  <link rel="preload" as="image" href="cards/prodigy.png" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Grain Texture Overlay on Dark Sections -->
+  <div class="global-grain" aria-hidden="true"></div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    
+    <!-- Hero Section -->
+    <section class="hero-section dark-bg">
+      <div class="section-container hero-container">
+        <img
+          src="brand/wordmark.png"
+          alt="Erito"
+          class="hero-logo"
+          loading="eager"
+        />
+
+        <h1 class="hero-headline display-font">
+          <span>Not every card is</span>
+          <a href="#request" class="highlight-badge" aria-label="Request an invite">Earned</a>
+        </h1>
+
+        <p class="hero-subheadline body-font">
+          A first wallet for your child, built around standards.
+        </p>
+      </div>
+    </section>
+
+    <!-- Tiers Section -->
+    <section class="tiers-section cream-bg">
+      <div class="section-container tiers-container">
+        <div class="tiers-grid">
+          
+          <!-- BASIC Card -->
+          <div class="tier-card fade-up" data-delay="0">
+            <div class="card-visual-wrapper">
+              <div class="card-inner-box">
+                <img
+                  src="cards/basic.png"
+                  alt="BASIC card"
+                  class="card-img"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <h2 class="tier-name label-font">BASIC</h2>
+            <p class="tier-desc body-font">Their first wallet. Set limits if you want to.</p>
+          </div>
+
+          <!-- CORE Card (Elevated on desktop) -->
+          <div class="tier-card tier-card-core fade-up" data-delay="150">
+            <div class="card-visual-wrapper">
+              <div class="card-inner-box">
+                <img
+                  src="cards/core.png"
+                  alt="CORE card"
+                  class="card-img"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <h2 class="tier-name label-font">CORE</h2>
+            <p class="tier-desc body-font">Earned through spending.</p>
+          </div>
+
+          <!-- PRODIGY Card -->
+          <div class="tier-card fade-up" data-delay="300">
+            <div class="card-visual-wrapper">
+              <div class="card-inner-box prodigy-border">
+                <img
+                  src="cards/prodigy.png"
+                  alt="PRODIGY card"
+                  class="card-img"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <h2 class="tier-name tier-name-prodigy label-font">PRODIGY</h2>
+            <p class="tier-desc body-font">By invitation only.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Drops / Partner Brands Section -->
+    <section class="drops-section dark-bg">
+      <div class="section-container drops-container">
+        <h2 class="drops-headline display-font">
+          Early access to limited-stock items from partner brands.
+        </h2>
+      </div>
+    </section>
+
+    <!-- Parent Control Features Section -->
+    <section class="parent-control-section cream-bg">
+      <div class="section-container parent-control-container">
+        <div class="feature-row">
+          <h2 class="feature-title display-font">Set limits</h2>
+        </div>
+        <div class="feature-row">
+          <h2 class="feature-title display-font">See activity</h2>
+        </div>
+        <div class="feature-row feature-row-last">
+          <h2 class="feature-title display-font">Approve every invite</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admission & Criteria (How Invites Work) -->
+    <section class="admission-section cream-bg">
+      <div class="section-container admission-container">
+        <div class="admission-header">
+          <span class="admission-label label-font">Admission &amp; Criteria</span>
+          <h2 class="admission-title display-font">
+            Priority for parents. Reserved for exceptional teens.
+          </h2>
+        </div>
+
+        <div class="admission-content body-font">
+          <p>
+            Joining our community ensures your family receives the opportunity to apply first the moment our application window opens.
+          </p>
+          <p>
+            However, the card is granted to your teen, not to you.
+          </p>
+          <p>
+            When applications for the wallet are reviewed, admission will be evaluated on demonstrated initiative and achievement—such as founding a venture, engineering a project, or pursuing exceptional creative and academic work. Erito is intentionally reserved for the young minds who will fuel the next chapter of the world.
+          </p>
+        </div>
+
+        <div class="admission-quote-box">
+          <p class="admission-quote display-font">
+            “Not every card is given. Some are earned.”
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="request" class="final-cta-section dark-bg">
+      <div class="section-container final-cta-container">
+        <h2 class="hero-headline display-font">
+          <span>Start them</span>
+          <a href="#request-form" class="highlight-badge" aria-label="Request an invite">Ahead</a>
+        </h2>
+
+        <div id="request-form" class="action-block">
+          <a
+            href="https://whatsapp.com/channel/0029VbElVyjKLaHl2fAsvu3s"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="whatsapp-cta-btn"
+            class="whatsapp-btn label-font"
+            aria-label="Join WhatsApp Announcement Channel"
+          >
+            <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
+              <path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.15c-1.52 0-3.01-.41-4.31-1.18l-.31-.18-3.12.82.83-3.04-.2-.32a8.21 8.21 0 0 1-1.26-4.34c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.69 8.23-8.1 8.23z" />
+            </svg>
+            <span>Join WhatsApp Announcement</span>
+          </a>
+
+          <div class="cta-microcopy body-font">
+            <p>Silent, one-way announcements only. No chat spam.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Clean Footer -->
+  <footer class="site-footer dark-bg">
+    <div class="footer-container body-font">
+      <span class="footer-brand display-font">Erito</span>
+      <p class="footer-disclaimer">
+        Wallet services will be offered through a licensed partner, subject to regulatory approval.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Social Media Share Download Popup Modal -->
+  <div id="share-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="share-modal-title" hidden>
+    <div class="modal-content dark-bg">
+      <!-- Close Button -->
+      <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close modal">&times;</button>
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <span class="modal-eyebrow label-font">Community Member Pass</span>
+        <h3 id="share-modal-title" class="modal-title display-font">Share with other parents</h3>
+        <p class="modal-desc body-font">
+          You’re now set to receive the first announcement. Download your official badge to post on Instagram, WhatsApp, or Stories.
+        </p>
+      </div>
+
+      <!-- Share Card Preview -->
+      <div class="modal-preview-wrapper">
+        <img
+          src="share/social-card.png"
+          alt="Erito Community Share Graphic"
+          class="modal-preview-img"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Modal Actions -->
+      <div class="modal-actions">
+        <a
+          href="share/social-card.png"
+          download="erito-community-badge.png"
+          class="btn-download label-font"
+        >
+          Download Share Image
+        </a>
+        <button type="button" id="modal-done-btn" class="btn-done label-font">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

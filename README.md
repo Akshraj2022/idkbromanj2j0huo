@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Erito — Static Website
 
-## Getting Started
+A pure, standalone HTML, CSS, and JavaScript website for Erito — A first wallet for teens, built around standards.
 
-First, run the development server:
+## Project Structure
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+├── index.html          # Main semantic HTML5 webpage
+├── style.css           # Pure responsive CSS (design tokens, animations, layout)
+├── script.js           # Vanilla JavaScript (modal, scroll animations, 3D card tilt)
+├── favicon.ico         # Website favicon
+├── brand/
+│   ├── wordmark.png    # Official Erito logo wordmark
+│   └── wordmark.svg    # Official SVG vector wordmark
+├── cards/
+│   ├── basic.png       # Basic tier card render
+│   ├── core.png        # Core tier card render
+│   └── prodigy.png     # Prodigy tier card render
+└── share/
+    ├── social-card.png # Community badge for parents to share on social media
+    └── social-card.jpg
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running Locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Because this project requires no build tools or package managers, you can view it directly:
+- Open `index.html` in any web browser, or
+- Start a simple local static server:
+  ```bash
+  # Using Python 3:
+  python -m http.server 3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+  # Or using Node.js:
+  npx serve .
+  ```
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Zero dependencies & zero server runtime**: Pure HTML5, CSS3, and vanilla JS.
+- **WhatsApp Announcement Channel CTA**: Direct integration with one-way announcement channel.
+- **Social Media Share Pass**: Interactive modal popup allowing parents to preview and download their official community share badge.
+- **3D Interactive Cards**: Subtle perspective mouse tracking on desktop.
+- **Accessible & Responsive**: Fully responsive across mobile, tablet, and widescreen viewports with `prefers-reduced-motion` support.
